@@ -1,0 +1,144 @@
+---
+---
+
+<section id="agenda" class="relative py-32 bg-white overflow-hidden">
+  <div class="orb w-[400px] h-[400px] bg-brand-sky/5 top-20 right-[-100px]"></div>
+  <div class="absolute inset-0 bg-grid-pattern opacity-[0.12]"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+    <div class="text-center mb-20">
+      <div class="reveal">
+        <span class="section-label">Programa del evento</span>
+        <h2 class="font-display font-extrabold text-4xl sm:text-5xl mt-4 text-slate-900">
+          Agenda <span class="gradient-text">general</span>
+        </h2>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-6">
+      {[
+        {
+          date: '7 oct',
+          day: 'Miércoles',
+          color: 'from-brand-gold/25 to-brand-gold/5',
+          badgeClass: 'border-amber-500/40 text-amber-700 bg-amber-500/10',
+          timeClass: 'text-amber-700',
+          lineClass: 'bg-amber-500/20',
+          badge: 'Día doctoral',
+          title: 'Coloquio doctoral',
+          subtitle: 'Maestría y doctorado',
+          events: [
+            { time: '09:00', label: 'Apertura de la sesión doctoral' },
+            { time: '10:30', label: 'Presentaciones de investigación' },
+            { time: '14:00', label: 'Sesiones de mentoría' },
+            { time: '17:00', label: 'Retroalimentación y cierre' },
+          ],
+        },
+        {
+          date: '8 oct',
+          day: 'Jueves',
+          color: 'from-brand-blue/20 to-brand-blue/5',
+          badgeClass: 'border-blue-600/40 text-blue-700 bg-blue-600/10',
+          timeClass: 'text-blue-700',
+          lineClass: 'bg-blue-600/20',
+          badge: 'Día principal 1',
+          title: 'Inauguración del congreso',
+          subtitle: 'Programa completo',
+          events: [
+            { time: '09:00', label: 'Ceremonia inaugural' },
+            { time: '10:30', label: 'Conferencias magistrales' },
+            { time: '14:00', label: 'Paneles temáticos' },
+            { time: '16:30', label: 'Presentaciones académicas' },
+            { time: '19:00', label: 'Networking académico' },
+          ],
+        },
+        {
+          date: '9 oct',
+          day: 'Viernes',
+          color: 'from-brand-cyan/20 to-brand-cyan/5',
+          badgeClass: 'border-cyan-600/40 text-cyan-800 bg-cyan-600/10',
+          timeClass: 'text-cyan-800',
+          lineClass: 'bg-cyan-600/20',
+          badge: 'Día principal 2',
+          title: 'Sesiones plenarias',
+          subtitle: 'y talleres',
+          events: [
+            { time: '09:00', label: 'Talleres y laboratorios' },
+            { time: '11:00', label: 'Sesiones paralelas' },
+            { time: '14:00', label: 'Presentaciones' },
+            { time: '16:00', label: 'Ceremonia de cierre' },
+            { time: '18:00', label: 'Encuentro social' },
+          ],
+        },
+      ].map((day, i) => (
+        <div class={`reveal reveal-delay-${i + 1} relative rounded-2xl overflow-hidden border border-slate-200 glass glass-hover card-shine`}>
+          <div class={`absolute inset-0 bg-gradient-to-b ${day.color} pointer-events-none`}></div>
+
+          <div class="relative p-6">
+            <div class="flex items-start justify-between mb-6">
+              <div>
+                <div class="font-mono text-xs text-slate-500 tracking-widest uppercase mb-1">{day.day}</div>
+                <div class="font-display font-extrabold text-4xl text-slate-900">{day.date}</div>
+              </div>
+              <span class={`font-mono text-xs px-3 py-1 rounded-full border ${day.badgeClass}`}>
+                {day.badge}
+              </span>
+            </div>
+
+            <div class="mb-6">
+              <h3 class="font-display font-bold text-xl text-slate-900">{day.title}</h3>
+              <p class="text-slate-500 text-sm">{day.subtitle}</p>
+            </div>
+
+            <div class="space-y-3">
+              {day.events.map((event) => (
+                <div class="flex items-center gap-3">
+                  <span class={`font-mono text-xs w-12 shrink-0 opacity-80 ${day.timeClass}`}>{event.time}</span>
+                  <div class={`h-px flex-1 ${day.lineClass}`}></div>
+                  <span class="text-slate-600 text-xs font-body leading-tight text-right max-w-[140px]">{event.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-16 reveal">
+      <div class="glass rounded-2xl p-8 border border-slate-200">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            {
+              icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>`,
+              title: 'Conferencias magistrales',
+              desc: 'Expertos internacionales invitados',
+            },
+            {
+              icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>`,
+              title: 'Paneles temáticos',
+              desc: 'Grupos de discusión especializados',
+            },
+            {
+              icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
+              title: 'Talleres prácticos',
+              desc: 'Sesiones de modelado aplicado',
+            },
+            {
+              icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>`,
+              title: 'Networking académico',
+              desc: 'Conexión con investigadores',
+            },
+          ].map((item) => (
+            <div class="flex items-start gap-4">
+              <div class="text-brand-cyan shrink-0 mt-0.5" set:html={item.icon}></div>
+              <div>
+                <div class="font-display font-semibold text-slate-900 text-sm mb-1">{item.title}</div>
+                <div class="text-slate-500 text-xs">{item.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,101 @@
+---
+---
+
+<section
+  id="hero"
+  class="relative min-h-screen flex items-center justify-center overflow-hidden hero-grid bg-white"
+>
+  <div class="orb w-[600px] h-[600px] bg-brand-blue/5 top-[-100px] right-[-200px] animate-pulse-slow"></div>
+  <div class="orb w-[400px] h-[400px] bg-brand-cyan/5 bottom-[100px] left-[-100px] animate-float" style="animation-delay: 2s"></div>
+  <div class="orb w-[300px] h-[300px] bg-brand-gold/5 top-[50%] right-[20%] animate-float" style="animation-delay: 4s"></div>
+
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white pointer-events-none"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-20 text-center">
+    <div class="animate-fade-in" style="animation-delay: 0.1s">
+      <span class="section-label inline-block mb-6">
+        Santiago de Chile · 7–9 de octubre de 2026
+      </span>
+    </div>
+
+    <div class="animate-fade-up" style="animation-delay: 0.2s">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <div class="h-px w-12 bg-gradient-to-r from-transparent to-brand-cyan/40"></div>
+        <span class="font-mono text-brand-cyan/70 text-xs tracking-widest uppercase">XXIV edición</span>
+        <div class="h-px w-12 bg-gradient-to-l from-transparent to-brand-cyan/40"></div>
+      </div>
+
+      <h1 class="font-display font-extrabold leading-none tracking-tight mb-6">
+        <span class="block text-6xl sm:text-7xl md:text-8xl lg:text-[9rem] text-slate-900">
+          CLADS
+        </span>
+        <span class="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl gradient-text">
+          2026
+        </span>
+      </h1>
+
+      <p class="font-display font-medium text-sm sm:text-base tracking-[0.25em] uppercase text-slate-500 mb-10">
+        Congreso Latinoamericano de Dinámica de Sistemas
+      </p>
+    </div>
+
+    <div class="animate-fade-up max-w-2xl mx-auto mb-14" style="animation-delay: 0.4s">
+      <p class="text-slate-600 text-base sm:text-lg leading-relaxed font-light">
+        El principal punto de encuentro en Latinoamérica para investigadores, académicos y profesionales en Dinámica de Sistemas. Donde el pensamiento sistémico impulsa soluciones a los grandes desafíos del siglo XXI.
+      </p>
+    </div>
+
+    <div class="animate-fade-up flex flex-col sm:flex-row gap-4 justify-center items-center mb-20" style="animation-delay: 0.5s">
+      <a href="#register" class="btn-primary flex items-center gap-2 text-sm">
+        <span>Inscribirse ahora</span>
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+      <a href="#about" class="btn-outline flex items-center gap-2 text-sm">
+        <span>Saber más</span>
+      </a>
+    </div>
+
+    <div class="animate-fade-up grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto" style="animation-delay: 0.6s">
+      {[
+        { num: '300+', label: 'Asistentes esperados' },
+        { num: '3', label: 'Días de congreso' },
+        { num: '20+', label: 'Países' },
+        { num: '9', label: 'Áreas temáticas' },
+      ].map((stat) => (
+        <div class="glass rounded-xl p-4 border-glow-anim">
+          <div class="count-badge">{stat.num}</div>
+          <div class="text-slate-500 text-xs mt-1 font-body leading-tight">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <div class="w-6 h-10 border border-slate-300 rounded-full flex items-start justify-center pt-2">
+      <div class="w-1 h-2 bg-brand-cyan/70 rounded-full"></div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/25 to-transparent"></div>
+</section>
+
+<div class="relative bg-white py-5 overflow-hidden border-y border-slate-200/80">
+  <div class="flex animate-marquee whitespace-nowrap">
+    {Array(8).fill(null).map((_, i) => (
+      <span class="inline-flex items-center gap-6 mx-6 text-slate-400 font-display font-semibold text-xs tracking-widest uppercase">
+        <span>Dinámica de Sistemas</span>
+        <span class="text-brand-cyan">◆</span>
+        <span>Sistemas complejos</span>
+        <span class="text-brand-cyan">◆</span>
+        <span>Pensamiento sistémico</span>
+        <span class="text-brand-cyan">◆</span>
+        <span>Innovación</span>
+        <span class="text-brand-cyan">◆</span>
+        <span>Sostenibilidad</span>
+        <span class="text-brand-cyan">◆</span>
+      </span>
+    ))}
+  </div>
+</div>

@@ -1,0 +1,119 @@
+---
+---
+
+<section id="venue" class="relative py-32 bg-white overflow-hidden">
+  <div class="orb w-[500px] h-[500px] bg-brand-blue/5 top-20 right-[-100px]"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+    <div class="text-center mb-20">
+      <div class="reveal">
+        <span class="section-label">Ubicación del evento</span>
+        <h2 class="font-display font-extrabold text-4xl sm:text-5xl mt-4 text-slate-900">
+          La <span class="gradient-text">sede</span>
+        </h2>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+      <div class="reveal">
+        <div class="relative rounded-2xl overflow-hidden aspect-video glass border border-slate-200">
+          <img
+            src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=900&q=80"
+            alt="Universidad Andrés Bello"
+            class="w-full h-full object-cover opacity-95"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-white/90 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 right-4">
+            <p class="font-display font-semibold text-slate-900 text-sm">Universidad Andrés Bello</p>
+            <p class="text-slate-500 text-xs font-mono">Santiago de Chile</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-display font-extrabold text-2xl text-slate-900 mb-3">
+              Universidad Andrés Bello
+            </h3>
+            <p class="text-slate-600 leading-relaxed text-sm mb-6">
+              Institución anfitriona de CLADS 2026, facilitando sus instalaciones académicas para el desarrollo del evento en un entorno moderno, equipado y propicio para el aprendizaje y la colaboración.
+            </p>
+            <p class="text-slate-600 leading-relaxed text-sm">
+              Esta alianza refuerza el compromiso de la universidad con la generación de conocimiento, el fortalecimiento de redes académicas y el impulso de iniciativas que abordan los grandes desafíos contemporáneos.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            {[
+              { label: 'Ciudad', value: 'Santiago, Chile' },
+              { label: 'Fecha', value: '7–9 oct 2026' },
+              { label: 'Sede', value: 'Univ. Andrés Bello' },
+              { label: 'Modalidad', value: 'Presencial' },
+            ].map((item) => (
+              <div class="glass rounded-xl p-4">
+                <div class="text-slate-400 text-xs font-mono tracking-widest uppercase mb-1">{item.label}</div>
+                <div class="font-display font-semibold text-slate-900 text-sm">{item.value}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="relative rounded-2xl overflow-hidden aspect-[21/9] glass border border-slate-200">
+        <img
+          src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=1400&q=80"
+          alt="Santiago de Chile"
+          class="w-full h-full object-cover opacity-90"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-white/75 via-transparent to-white/75"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-white/70 to-transparent"></div>
+
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="text-center">
+            <div class="font-display font-extrabold text-5xl sm:text-7xl text-slate-900 text-glow mb-2">
+              Santiago
+            </div>
+            <div class="font-mono text-brand-cyan text-sm tracking-widest uppercase opacity-90">
+              de Chile · capital académica
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute top-6 left-6">
+          <div class="glass rounded-lg px-3 py-2 border border-brand-cyan/30">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-cyan" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              <span class="font-mono text-xs text-brand-cyan">-33,45° S, -70,66° O</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-16 reveal">
+      <div class="text-center mb-10">
+        <h3 class="font-display font-bold text-2xl text-slate-900">Instituciones organizadoras</h3>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {[
+          { name: 'Tecnológico de Monterrey', abbr: 'TEC' },
+          { name: 'Universidad Andrés Bello', abbr: 'UNAB' },
+          { name: 'System Dynamics Society', abbr: 'SDS' },
+          { name: 'ACODS', abbr: 'ACODS' },
+        ].map((org) => (
+          <div class="glass glass-hover rounded-xl p-5 text-center">
+            <div class="w-12 h-12 rounded-lg bg-slate-100 flex items-center justify-center mx-auto mb-3">
+              <span class="font-display font-bold text-xs text-slate-500">{org.abbr.substring(0, 2)}</span>
+            </div>
+            <p class="font-display font-medium text-slate-600 text-xs leading-tight">{org.name}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

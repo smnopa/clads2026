@@ -1,0 +1,57 @@
+---
+---
+
+<section id="register" class="relative py-32 bg-white overflow-hidden">
+  <div class="orb w-[800px] h-[800px] bg-brand-blue/5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+  <div class="orb w-[400px] h-[400px] bg-brand-cyan/5 top-0 right-0"></div>
+  <div class="absolute inset-0 bg-grid-pattern opacity-[0.12]"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+    <div class="reveal mb-6">
+      <span class="section-label">Únete al congreso</span>
+    </div>
+
+    <h2 class="reveal font-display font-extrabold text-4xl sm:text-5xl md:text-6xl leading-tight mb-6 text-slate-900">
+      Sé parte del evento más<br/>
+      <span class="gradient-text">importante de Latinoamérica</span>
+    </h2>
+
+    <p class="reveal reveal-delay-1 text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-12">
+      Comparte tu investigación, conecta con expertos e impacta en los grandes desafíos actuales desde la perspectiva de la Dinámica de Sistemas.
+    </p>
+
+    <div class="reveal reveal-delay-2 flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+      <a
+        href="#"
+        class="btn-primary text-sm flex items-center gap-3 px-8 py-4"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+        </svg>
+        Inscribirse ahora
+      </a>
+      <a
+        href="#"
+        class="btn-outline text-sm flex items-center gap-3 px-8 py-4"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+        Enviar resumen
+      </a>
+    </div>
+
+    <div class="reveal reveal-delay-3 grid grid-cols-3 gap-4 max-w-lg mx-auto">
+      {[
+        { icon: '✓', text: 'Comparte tu investigación' },
+        { icon: '✓', text: 'Conecta con expertos' },
+        { icon: '✓', text: 'Impacta en los desafíos actuales' },
+      ].map((item) => (
+        <div class="glass rounded-xl p-3 text-center">
+          <div class="text-brand-cyan text-lg mb-1">{item.icon}</div>
+          <p class="text-slate-600 text-xs leading-snug">{item.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

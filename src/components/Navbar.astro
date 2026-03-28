@@ -1,0 +1,75 @@
+---
+---
+
+<nav
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4"
+>
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <a href="#hero" class="flex items-center gap-3 group">
+      <div class="w-8 h-8 rounded-sm bg-gradient-to-br from-brand-sky to-brand-cyan flex items-center justify-center">
+        <span class="font-display font-bold text-xs text-white">CL</span>
+      </div>
+      <div>
+        <span class="font-display font-bold text-slate-900 text-sm tracking-wider">CLADS</span>
+        <span class="font-mono text-brand-cyan text-xs ml-1 opacity-80">2026</span>
+      </div>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8">
+      {[
+        { label: 'Acerca de', href: '#about' },
+        { label: 'Agenda', href: '#agenda' },
+        { label: 'Temas', href: '#topics' },
+        { label: 'Cronograma', href: '#timeline' },
+        { label: 'Sede', href: '#venue' },
+      ].map((item) => (
+        <a
+          href={item.href}
+          class="text-xs font-display font-medium tracking-widest uppercase text-slate-500 hover:text-brand-sky transition-colors duration-200"
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+
+    <div class="hidden md:flex items-center gap-3">
+      <a href="#contact" class="btn-outline text-xs py-2 px-4">Contacto</a>
+      <a href="#register" class="btn-primary text-xs py-2 px-4">Inscribirse</a>
+    </div>
+
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden flex flex-col gap-1.5 p-2"
+      aria-label="Menú"
+    >
+      <span class="w-6 h-px bg-slate-800 block"></span>
+      <span class="w-4 h-px bg-brand-cyan block"></span>
+      <span class="w-6 h-px bg-slate-800 block"></span>
+    </button>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden mt-4 mx-6 glass rounded-lg p-6 space-y-4"
+  >
+    {[
+      { label: 'Acerca de', href: '#about' },
+      { label: 'Agenda', href: '#agenda' },
+      { label: 'Temas', href: '#topics' },
+      { label: 'Cronograma', href: '#timeline' },
+      { label: 'Sede', href: '#venue' },
+    ].map((item) => (
+      <a
+        href={item.href}
+        class="block text-sm font-display font-medium tracking-widest uppercase text-slate-600 hover:text-brand-sky transition-colors"
+      >
+        {item.label}
+      </a>
+    ))}
+    <div class="pt-4 border-t border-slate-200 flex flex-col gap-3">
+      <a href="#contact" class="btn-outline text-center text-xs py-2">Contacto</a>
+      <a href="#register" class="btn-primary text-center text-xs py-2">Inscribirse</a>
+    </div>
+  </div>
+</nav>
