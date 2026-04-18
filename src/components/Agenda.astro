@@ -2,14 +2,14 @@
 ---
 
 <section id="agenda" class="relative py-32 bg-white overflow-hidden">
-  <div class="orb w-[400px] h-[400px] bg-brand-sky/5 top-20 right-[-100px]"></div>
+  <div class="orb w-[400px] h-[400px] bg-brand-blue/5 top-20 right-[-100px]"></div>
   <div class="absolute inset-0 bg-grid-pattern opacity-[0.12]"></div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-6">
     <div class="text-center mb-20">
       <div class="reveal">
         <span class="section-label">Programa del evento</span>
-        <h2 class="font-display font-extrabold text-4xl sm:text-5xl mt-4 text-slate-900">
+        <h2 class="font-display text-4xl sm:text-5xl mt-4 text-slate-900">
           Agenda <span class="gradient-text">general</span>
         </h2>
       </div>
@@ -20,10 +20,10 @@
         {
           date: '7 oct',
           day: 'Miércoles',
-          color: 'from-brand-gold/25 to-brand-gold/5',
-          badgeClass: 'border-amber-500/40 text-amber-700 bg-amber-500/10',
-          timeClass: 'text-amber-700',
-          lineClass: 'bg-amber-500/20',
+          color: 'from-brand-blue-light/25 to-brand-blue-light/5',
+          badgeClass: 'border-brand-blue/35 text-brand-blue-dark bg-brand-blue-light/10',
+          timeClass: 'text-brand-blue-dark',
+          lineClass: 'bg-brand-blue/25',
           badge: 'Día doctoral',
           title: 'Coloquio doctoral',
           subtitle: 'Maestría y doctorado',
@@ -55,10 +55,10 @@
         {
           date: '9 oct',
           day: 'Viernes',
-          color: 'from-brand-cyan/20 to-brand-cyan/5',
-          badgeClass: 'border-cyan-600/40 text-cyan-800 bg-cyan-600/10',
-          timeClass: 'text-cyan-800',
-          lineClass: 'bg-cyan-600/20',
+          color: 'from-brand-blue-dark/22 to-brand-blue/5',
+          badgeClass: 'border-brand-blue-dark/40 text-brand-blue-dark bg-brand-blue-dark/10',
+          timeClass: 'text-brand-blue-dark',
+          lineClass: 'bg-brand-blue-dark/20',
           badge: 'Día principal 2',
           title: 'Sesiones plenarias',
           subtitle: 'y talleres',
@@ -78,7 +78,7 @@
             <div class="flex items-start justify-between mb-6">
               <div>
                 <div class="font-mono text-xs text-slate-500 tracking-widest uppercase mb-1">{day.day}</div>
-                <div class="font-display font-extrabold text-4xl text-slate-900">{day.date}</div>
+                <div class="font-display text-4xl text-slate-900">{day.date}</div>
               </div>
               <span class={`font-mono text-xs px-3 py-1 rounded-full border ${day.badgeClass}`}>
                 {day.badge}
@@ -86,7 +86,7 @@
             </div>
 
             <div class="mb-6">
-              <h3 class="font-display font-bold text-xl text-slate-900">{day.title}</h3>
+              <h3 class="font-display text-xl text-slate-900">{day.title}</h3>
               <p class="text-slate-500 text-sm">{day.subtitle}</p>
             </div>
 
@@ -130,9 +130,9 @@
             },
           ].map((item) => (
             <div class="flex items-start gap-4">
-              <div class="text-brand-cyan shrink-0 mt-0.5" set:html={item.icon}></div>
+              <div class="text-brand-blue shrink-0 mt-0.5" set:html={item.icon}></div>
               <div>
-                <div class="font-display font-semibold text-slate-900 text-sm mb-1">{item.title}</div>
+                <div class="font-semibold text-slate-900 text-sm mb-1">{item.title}</div>
                 <div class="text-slate-500 text-xs">{item.desc}</div>
               </div>
             </div>

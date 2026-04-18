@@ -39,13 +39,13 @@ const milestones = [
 ---
 
 <section id="timeline" class="relative py-32 bg-white overflow-hidden">
-  <div class="orb w-[400px] h-[400px] bg-brand-gold/5 bottom-20 left-[-150px]"></div>
+  <div class="orb w-[400px] h-[400px] bg-brand-blue-light/10 bottom-20 left-[-150px]"></div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-6">
     <div class="text-center mb-20">
       <div class="reveal">
         <span class="section-label">Fechas importantes</span>
-        <h2 class="font-display font-extrabold text-4xl sm:text-5xl mt-4 text-slate-900">
+        <h2 class="font-display text-4xl sm:text-5xl mt-4 text-slate-900">
           Hitos <span class="gradient-text">clave</span>
         </h2>
       </div>
@@ -56,14 +56,14 @@ const milestones = [
         {milestones.map((milestone, i) => (
           <div class={`reveal reveal-delay-${i + 1} relative flex flex-col md:flex-row gap-6 md:gap-10 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
             <div class={`md:w-1/2 flex ${i % 2 === 0 ? 'md:justify-end md:text-right' : 'md:justify-start md:text-left'}`}>
-              <div class={`glass glass-hover rounded-2xl p-6 max-w-sm w-full card-shine border ${milestone.status === 'active' ? 'border-brand-cyan/40 glow-cyan' : 'border-slate-200'}`}>
+              <div class={`glass glass-hover rounded-2xl p-6 max-w-sm w-full card-shine border ${milestone.status === 'active' ? 'border-brand-blue/40 glow-blue' : 'border-slate-200'}`}>
                 {milestone.status === 'active' && (
                   <div class="flex items-center gap-2 mb-3">
-                    <div class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></div>
-                    <span class="font-mono text-xs text-brand-cyan tracking-widest uppercase">Abierto</span>
+                    <div class="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></div>
+                    <span class="font-mono text-xs text-brand-blue-dark tracking-widest uppercase">Abierto</span>
                   </div>
                 )}
-                <h3 class="font-display font-bold text-slate-900 text-base leading-snug mb-2">
+                <h3 class="font-display text-slate-900 text-base leading-snug mb-2">
                   {milestone.label}
                 </h3>
                 <p class="text-slate-500 text-sm leading-relaxed">
@@ -73,18 +73,18 @@ const milestones = [
             </div>
 
             <div class="hidden md:flex items-center justify-center relative z-10">
-              <div class={`w-16 h-16 rounded-xl glass border flex flex-col items-center justify-center shrink-0 ${milestone.status === 'active' ? 'border-brand-cyan/50 bg-brand-cyan/10' : 'border-slate-200'}`}>
-                <span class={`font-mono text-xs uppercase ${milestone.status === 'active' ? 'text-brand-cyan' : 'text-slate-400'}`}>{milestone.month}</span>
-                <span class={`font-display font-bold text-lg leading-none ${milestone.status === 'active' ? 'text-brand-cyan' : 'text-slate-900'}`}>{milestone.day}</span>
+              <div class={`w-16 h-16 rounded-xl glass border flex flex-col items-center justify-center shrink-0 ${milestone.status === 'active' ? 'border-brand-blue/50 bg-brand-blue/10' : 'border-slate-200'}`}>
+                <span class={`font-mono text-xs uppercase ${milestone.status === 'active' ? 'text-brand-blue-dark' : 'text-slate-400'}`}>{milestone.month}</span>
+                <span class={`font-display text-lg leading-none ${milestone.status === 'active' ? 'text-brand-blue-dark' : 'text-slate-900'}`}>{milestone.day}</span>
               </div>
             </div>
 
             <div class={`md:w-1/2 hidden md:block`}></div>
 
             <div class="flex md:hidden items-start gap-4">
-              <div class={`w-14 h-14 rounded-xl glass border flex flex-col items-center justify-center shrink-0 ${milestone.status === 'active' ? 'border-brand-cyan/50 bg-brand-cyan/10' : 'border-slate-200'}`}>
-                <span class={`font-mono text-xs uppercase ${milestone.status === 'active' ? 'text-brand-cyan' : 'text-slate-400'}`}>{milestone.month}</span>
-                <span class={`font-display font-bold text-lg leading-none ${milestone.status === 'active' ? 'text-brand-cyan' : 'text-slate-900'}`}>{milestone.day}</span>
+              <div class={`w-14 h-14 rounded-xl glass border flex flex-col items-center justify-center shrink-0 ${milestone.status === 'active' ? 'border-brand-blue/50 bg-brand-blue/10' : 'border-slate-200'}`}>
+                <span class={`font-mono text-xs uppercase ${milestone.status === 'active' ? 'text-brand-blue-dark' : 'text-slate-400'}`}>{milestone.month}</span>
+                <span class={`font-display text-lg leading-none ${milestone.status === 'active' ? 'text-brand-blue-dark' : 'text-slate-900'}`}>{milestone.day}</span>
               </div>
             </div>
           </div>

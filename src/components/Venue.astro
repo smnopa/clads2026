@@ -1,4 +1,14 @@
 ---
+/** Ficha de Google Maps del punto (mismo lugar que el mapa embebido). */
+const mapsPlaceUrl =
+  'https://www.google.com/maps/place/Universidad+Andr%C3%A9s+Bello/@-33.4517857,-70.6676747,17.75z/data=!4m6!3m5!1s0x9662c501ca8bc3b9:0xf2793aa2c27c7c6b!8m2!3d-33.451571!4d-70.6678806!16s%2Fg%2F11bvtj1kw9';
+
+/**
+ * Mapa embebido sin API key (`output=embed`).
+ * Coordenadas del marcador según la ficha: 3d/-4d del enlace oficial.
+ */
+const googleMapsEmbedSrc =
+  'https://www.google.com/maps?q=-33.451571,-70.6678806&hl=es&z=18&output=embed';
 ---
 
 <section id="venue" class="relative py-32 bg-white overflow-hidden">
@@ -8,7 +18,7 @@
     <div class="text-center mb-20">
       <div class="reveal">
         <span class="section-label">Ubicación del evento</span>
-        <h2 class="font-display font-extrabold text-4xl sm:text-5xl mt-4 text-slate-900">
+        <h2 class="font-display text-4xl sm:text-5xl mt-4 text-slate-900">
           La <span class="gradient-text">sede</span>
         </h2>
       </div>
@@ -18,28 +28,33 @@
       <div class="reveal">
         <div class="relative rounded-2xl overflow-hidden aspect-video glass border border-slate-200">
           <img
-            src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=900&q=80"
-            alt="Universidad Andrés Bello"
-            class="w-full h-full object-cover opacity-95"
+            src="https://images.unsplash.com/photo-1562774053-701939374585?w=900&q=80"
+            alt="Edificio y campus universitario — imagen referencial"
+            class="w-full h-full object-cover"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-white/90 to-transparent"></div>
-          <div class="absolute bottom-4 left-4 right-4">
-            <p class="font-display font-semibold text-slate-900 text-sm">Universidad Andrés Bello</p>
-            <p class="text-slate-500 text-xs font-mono">Santiago de Chile</p>
+          <div class="absolute inset-0 bg-gradient-to-t from-white/95 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-4 space-y-1">
+            <p class="font-display text-slate-900 text-sm">Universidad Andrés Bello · Campus Santiago</p>
+            <p class="text-slate-500 text-xs font-medium">Imagen referencial — sustituir por fotografía oficial del recinto</p>
           </div>
+        </div>
+        <div class="mt-4 rounded-xl border-2 border-dashed border-slate-300 bg-slate-50/80 px-4 py-3 text-center">
+          <p class="text-xs text-slate-500 font-medium">
+            Placeholder: aquí puede ir el logo del edificio sede o una vista fija del campus cuando dispongas del archivo.
+          </p>
         </div>
       </div>
 
       <div class="reveal reveal-delay-1">
         <div class="space-y-6">
           <div>
-            <h3 class="font-display font-extrabold text-2xl text-slate-900 mb-3">
+            <h3 class="font-display text-2xl text-slate-900 mb-3">
               Universidad Andrés Bello
             </h3>
-            <p class="text-slate-600 leading-relaxed text-sm mb-6">
+            <p class="text-slate-600 leading-relaxed text-sm mb-6 font-normal">
               Institución anfitriona de CLADS 2026, facilitando sus instalaciones académicas para el desarrollo del evento en un entorno moderno, equipado y propicio para el aprendizaje y la colaboración.
             </p>
-            <p class="text-slate-600 leading-relaxed text-sm">
+            <p class="text-slate-600 leading-relaxed text-sm font-normal">
               Esta alianza refuerza el compromiso de la universidad con la generación de conocimiento, el fortalecimiento de redes académicas y el impulso de iniciativas que abordan los grandes desafíos contemporáneos.
             </p>
           </div>
@@ -53,7 +68,7 @@
             ].map((item) => (
               <div class="glass rounded-xl p-4">
                 <div class="text-slate-400 text-xs font-mono tracking-widest uppercase mb-1">{item.label}</div>
-                <div class="font-display font-semibold text-slate-900 text-sm">{item.value}</div>
+                <div class="font-display text-slate-900 text-sm">{item.value}</div>
               </div>
             ))}
           </div>
@@ -61,35 +76,71 @@
       </div>
     </div>
 
-    <div class="reveal">
-      <div class="relative rounded-2xl overflow-hidden aspect-[21/9] glass border border-slate-200">
-        <img
-          src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=1400&q=80"
-          alt="Santiago de Chile"
-          class="w-full h-full object-cover opacity-90"
-        />
-        <div class="absolute inset-0 bg-gradient-to-r from-white/75 via-transparent to-white/75"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-white/70 to-transparent"></div>
+    <div class="reveal mb-10">
+      <div class="text-center mb-8">
+        <span class="section-label">Cómo llegar</span>
+        <h3 class="font-display text-2xl sm:text-3xl text-slate-900 mt-2">
+          Ubicación en <span class="gradient-text">Santiago de Chile</span>
+        </h3>
+        <p class="text-slate-500 text-sm mt-3 max-w-2xl mx-auto font-normal">
+          Mapa de Google Maps incrustado (sin JavaScript propio ni claves de API). También puedes
+          <a
+            href={mapsPlaceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-brand-blue underline underline-offset-2 hover:text-brand-blue-dark"
+            >abrir la ubicación</a
+          > en la app.
+        </p>
+      </div>
 
-        <div class="absolute inset-0 flex items-center justify-center">
-          <div class="text-center">
-            <div class="font-display font-extrabold text-5xl sm:text-7xl text-slate-900 text-glow mb-2">
-              Santiago
-            </div>
-            <div class="font-mono text-brand-cyan text-sm tracking-widest uppercase opacity-90">
-              de Chile · capital académica
+      <div class="grid lg:grid-cols-5 gap-6 items-stretch">
+        <div class="lg:col-span-3 rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 min-h-[400px]">
+          <iframe
+            title="Universidad Andrés Bello — Google Maps"
+            src={googleMapsEmbedSrc}
+            width="100%"
+            height="400"
+            class="min-h-[400px] w-full border-0 block"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <div class="lg:col-span-2 flex flex-col gap-4">
+          <div class="rounded-2xl overflow-hidden border border-slate-200 aspect-[4/3] relative">
+            <img
+              src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=900&q=80"
+              alt="Panorama de Santiago de Chile con la cordillera — referencia visual"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
+            <div class="absolute bottom-3 left-3 right-3">
+              <p class="text-white text-sm font-display drop-shadow-sm">Vista aérea de Santiago</p>
+              <p class="text-white/85 text-xs font-medium">Imagen de contexto · ciudad anfitriona</p>
             </div>
           </div>
+          <a
+            href={mapsPlaceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-xl border border-brand-blue/25 bg-gradient-to-br from-slate-50 to-white p-4 flex flex-col justify-center gap-2 hover:border-brand-blue/50 hover:shadow-sm transition-all group"
+          >
+            <p class="text-xs font-mono uppercase tracking-widest text-brand-blue-dark/80">Google Maps</p>
+            <p class="text-sm text-slate-700 font-medium leading-snug group-hover:text-brand-blue-dark">
+              Rutas y Street View en la app →
+            </p>
+          </a>
         </div>
+      </div>
 
-        <div class="absolute top-6 left-6">
-          <div class="glass rounded-lg px-3 py-2 border border-brand-cyan/30">
-            <div class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-brand-cyan" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-              </svg>
-              <span class="font-mono text-xs text-brand-cyan">-33,45° S, -70,66° O</span>
-            </div>
+      <div class="flex flex-wrap justify-center gap-3 mt-6">
+        <div class="glass rounded-lg px-4 py-2 border border-brand-blue/20">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-brand-blue" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+            <span class="font-mono text-xs text-slate-700">Universidad Andrés Bello · Santiago</span>
           </div>
         </div>
       </div>
@@ -97,7 +148,7 @@
 
     <div class="mt-16 reveal">
       <div class="text-center mb-10">
-        <h3 class="font-display font-bold text-2xl text-slate-900">Instituciones organizadoras</h3>
+        <h3 class="font-display text-2xl text-slate-900">Instituciones organizadoras</h3>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
@@ -107,10 +158,10 @@
           { name: 'ACODS', abbr: 'ACODS' },
         ].map((org) => (
           <div class="glass glass-hover rounded-xl p-5 text-center">
-            <div class="w-12 h-12 rounded-lg bg-slate-100 flex items-center justify-center mx-auto mb-3">
-              <span class="font-display font-bold text-xs text-slate-500">{org.abbr.substring(0, 2)}</span>
+            <div class="w-12 h-12 rounded-lg bg-slate-100 flex items-center justify-center mx-auto mb-3 border border-slate-200">
+              <span class="font-display text-xs text-slate-500">{org.abbr.substring(0, 2)}</span>
             </div>
-            <p class="font-display font-medium text-slate-600 text-xs leading-tight">{org.name}</p>
+            <p class="font-medium text-slate-600 text-xs leading-tight">{org.name}</p>
           </div>
         ))}
       </div>
