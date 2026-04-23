@@ -18,12 +18,18 @@
           XXIV Congreso Latinoamericano de Dinámica de Sistemas. Santiago de Chile, 7–9 de octubre de 2026.
         </p>
         <div class="flex gap-3">
-          {['X (Twitter)', 'LinkedIn', 'Correo'].map((social) => (
+          {[
+            { label: 'X (Twitter)', href: '#' },
+            { label: 'LinkedIn', href: 'https://www.linkedin.com/company/system-dynamics-latam/' },
+            { label: 'Correo', href: '#' },
+          ].map((social) => (
             <a
-              href="#"
+              href={social.href}
+              target={social.href !== '#' ? '_blank' : undefined}
+              rel={social.href !== '#' ? 'noopener noreferrer' : undefined}
               class="glass rounded-lg px-3 py-2 text-slate-500 hover:text-brand-blue text-xs font-mono transition-colors border border-slate-200 hover:border-brand-blue/35"
             >
-              {social}
+              {social.label}
             </a>
           ))}
         </div>
