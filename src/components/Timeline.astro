@@ -12,28 +12,28 @@ const milestones = [
     day: '31',
     label: 'Fecha límite para envío de resúmenes',
     desc: 'Último día para enviar resúmenes. Máximo 1 página.',
-    status: 'active',
+    status: 'past',
   },
   {
     month: 'Jul',
     day: '05',
     label: 'Notificación de aceptación',
     desc: 'Los autores reciben la decisión de aceptación o rechazo.',
-    status: 'upcoming',
+    status: 'past',
   },
   {
     month: 'Jul',
     day: '10',
     label: 'Envío opcional de trabajos completos',
     desc: 'Entrega de trabajos completos (opcional). Mínimo 6 páginas para publicación.',
-    status: 'upcoming',
+    status: 'past',
   },
   {
     month: 'Oct',
     day: '7–9',
     label: 'Desarrollo del Congreso',
-    desc: 'CLADS 2026 en la Universidad Andrés Bello, Santiago de Chile.',
-    status: 'upcoming',
+    desc: 'CLADS 2026 en la Universidad Andrés Bello, FEN – Campus Los Leones, Providencia, Santiago de Chile.',
+    status: 'active',
   },
 ];
 ---
@@ -58,9 +58,15 @@ const milestones = [
             <div class={`md:w-1/2 flex ${i % 2 === 0 ? 'md:justify-end md:text-right' : 'md:justify-start md:text-left'}`}>
               <div class={`glass glass-hover rounded-2xl p-6 max-w-sm w-full card-shine border ${milestone.status === 'active' ? 'border-brand-blue/40 glow-blue' : 'border-slate-200'}`}>
                 {milestone.status === 'active' && (
-                  <div class="flex items-center gap-2 mb-3">
+                  <div class={`flex items-center gap-2 mb-3 ${i % 2 === 0 ? 'md:justify-end' : ''}`}>
                     <div class="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></div>
-                    <span class="font-mono text-xs text-brand-blue-dark tracking-widest uppercase">Abierto</span>
+                    <span class="font-mono text-xs text-brand-blue-dark tracking-widest uppercase">Etapa actual</span>
+                  </div>
+                )}
+                {milestone.status === 'past' && (
+                  <div class={`flex items-center gap-1.5 mb-3 ${i % 2 === 0 ? 'md:justify-end' : ''}`}>
+                    <svg class="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    <span class="font-mono text-xs text-slate-400 tracking-widest uppercase">Finalizado</span>
                   </div>
                 )}
                 <h3 class="font-display text-slate-900 text-base leading-snug mb-2">

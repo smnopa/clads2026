@@ -1,108 +1,207 @@
 ---
+type Kind = 'apertura' | 'ponencia' | 'conferencia' | 'taller' | 'conversatorio' | 'pausa' | 'comida' | 'cierre' | 'social';
+
+interface Item {
+  time: string;
+  end?: string;
+  label?: string;
+  title: string;
+  who?: string;
+  kind: Kind;
+  status?: 'propuesto' | 'por-confirmar';
+}
+
+interface Day {
+  id: string;
+  day: string;
+  date: string;
+  theme: string;
+  items: Item[];
+}
+
+const days: Day[] = [
+  {
+    id: 'miercoles',
+    day: 'Miércoles',
+    date: '7 oct',
+    theme: 'Apertura y primeras ponencias',
+    items: [
+      { time: '14:00', end: '14:30', title: 'Apertura / Bienvenida', who: 'Comité Organizador CLADS 2026', kind: 'apertura' },
+      { time: '14:30', end: '15:15', label: 'Ponencia 1', title: 'A Systems Model of the Quantum Computing Ecosystem for Enterprise Readiness and Adoption', who: 'Andrés Rey Piedrahita, Sergio Andrés Arenas Hoyos', kind: 'ponencia' },
+      { time: '15:30', end: '16:15', label: 'Ponencia 2', title: 'System Dynamics in Practice: What 1,200 Models Reveal About the Evolution and Future of the Field', who: 'Carlos J. Franco, Juan Velasquez, Lorena Cadavid', kind: 'ponencia' },
+      { time: '16:15', end: '17:00', label: 'Ponencia 3', title: 'Evaluación del impacto de los retrasos de los proyectos de energías renovables no convencionales en el sistema eléctrico colombiano', who: 'Carlos Jaime Franco, Luzarait Cañas Quintero', kind: 'ponencia' },
+      { time: '17:30', end: '19:30', label: 'Taller / Actividad experiencial', title: 'Del pensamiento sistémico a la acción: diseñando innovación sostenible', who: 'Bárbara Allendes, Daniel Hayvard, Meagan Colvin', kind: 'taller' },
+      { time: '19:30', title: 'Cena opcional', who: 'Cada participante', kind: 'social' },
+    ],
+  },
+  {
+    id: 'jueves',
+    day: 'Jueves',
+    date: '8 oct',
+    theme: 'Jornada central',
+    items: [
+      { time: '09:30', label: 'Ponencia 4', title: 'Modelo de dinámica de sistemas para la comprensión de la gestión del agua por cooperación en zonas vulnerables', who: 'Beatriz Eugenia Marin Ospina', kind: 'ponencia' },
+      { time: '10:15', label: 'Conferencia', title: 'Título por definir', who: 'Gloria Pérez', kind: 'conferencia' },
+      { time: '11:00', label: 'Ponencia 5', title: 'Representación dinámica del incrementalismo en políticas públicas de transformación digital para la educación superior', who: 'Nayibe Castro Novoa', kind: 'ponencia' },
+      { time: '11:45', title: 'Pausa', kind: 'pausa' },
+      { time: '12:00', label: 'Ponencia 6', title: 'Formación del personal penitenciario y el respeto a los derechos humanos en las prisiones colombianas desde un enfoque sistémico', who: 'Rafael Lino Diaz Rivera', kind: 'ponencia' },
+      { time: '12:45', label: 'Conferencia', title: 'Energía', who: 'Juan Pablo Torres', kind: 'conferencia' },
+      { time: '13:30', end: '14:30', title: 'Almuerzo', who: 'UNAB', kind: 'comida' },
+      { time: '14:30', label: 'Ponencia 7', title: 'Modelado dinámico y estocástico del transporte multimodal de carga: un enfoque de dinámica de sistemas para el corredor Rosario–Buenos Aires', who: 'Erica Milin', kind: 'ponencia' },
+      { time: '15:15', label: 'Ponencia 8', title: 'IA en el colegio y en la U: políticas para evitar el desastre', who: 'Jorge Andrick Parra Valencia', kind: 'ponencia' },
+      { time: '16:00', title: 'Pausa · Conversatorio', who: 'Participantes y ponentes', kind: 'conversatorio', status: 'propuesto' },
+      { time: '16:30', label: 'Ponencia 9', title: 'Revisión de la literatura en dinámica de sistemas 2018–2025', who: 'Martin Kunc', kind: 'ponencia' },
+      { time: '17:15', label: 'Conferencia', title: 'Por confirmar', who: 'Isaac Dyner', kind: 'conferencia', status: 'por-confirmar' },
+      { time: '18:00', title: 'Cierre de conferencias', kind: 'cierre' },
+      { time: '19:30', title: 'Cena', who: 'UNAB', kind: 'social' },
+    ],
+  },
+  {
+    id: 'viernes',
+    day: 'Viernes',
+    date: '9 oct',
+    theme: 'Talleres y clausura',
+    items: [
+      { time: '09:30', label: 'Ponencia 10', title: 'La trampa del indicador: de la salud digital a la política social', who: 'Jorge Andrick Parra Valencia', kind: 'ponencia' },
+      { time: '10:15', label: 'Ponencia 11', title: 'Simulación híbrida para planificar por escenarios en la gestión de la cervecería artesanal USACA', who: 'Wilfredo Guaita', kind: 'ponencia' },
+      { time: '11:00', title: 'Mesa de diálogo con ponentes confirmados', who: 'Ponentes CLADS 2026', kind: 'conversatorio', status: 'propuesto' },
+      { time: '11:30', label: 'Ponencia 12', title: 'Integrating Systems Dynamics into the Development of Quantum Computing Use Cases: Extending the OQI Framework for SDG Applications', who: 'Sergio Andrés Arenas Hoyos, Andrés Rey Piedrahita', kind: 'ponencia' },
+      { time: '12:00', label: 'Taller', title: 'Liderazgo consciente y resiliente a través de la simulación mental y la neuroplasticidad', who: 'Meagan Colvin', kind: 'taller' },
+      { time: '14:00', title: 'Cierre / Conclusiones', who: 'Comité Organizador CLADS 2026', kind: 'cierre', status: 'propuesto' },
+      { time: '14:00', title: 'Actividad outdoor opcional', who: 'Cada participante', kind: 'social' },
+    ],
+  },
+];
+
+const kindStyle: Record<Kind, { tag: string; dot: string; compact?: boolean }> = {
+  apertura: { tag: 'Apertura', dot: 'bg-brand-blue-dark' },
+  ponencia: { tag: 'Ponencia', dot: 'bg-brand-blue' },
+  conferencia: { tag: 'Conferencia', dot: 'bg-indigo-500' },
+  taller: { tag: 'Taller', dot: 'bg-sky-500' },
+  conversatorio: { tag: 'Conversatorio', dot: 'bg-cyan-500' },
+  cierre: { tag: 'Clausura', dot: 'bg-brand-blue-dark' },
+  pausa: { tag: 'Pausa', dot: 'bg-slate-300', compact: true },
+  comida: { tag: 'Almuerzo', dot: 'bg-slate-300', compact: true },
+  social: { tag: 'Social', dot: 'bg-slate-300', compact: true },
+};
+
+const tagClass: Record<Kind, string> = {
+  apertura: 'border-brand-blue-dark/30 text-brand-blue-dark bg-brand-blue-dark/5',
+  ponencia: 'border-brand-blue/30 text-brand-blue bg-brand-blue/5',
+  conferencia: 'border-indigo-500/30 text-indigo-600 bg-indigo-500/5',
+  taller: 'border-sky-500/30 text-sky-700 bg-sky-500/5',
+  conversatorio: 'border-cyan-500/30 text-cyan-700 bg-cyan-500/5',
+  cierre: 'border-brand-blue-dark/30 text-brand-blue-dark bg-brand-blue-dark/5',
+  pausa: '',
+  comida: '',
+  social: '',
+};
+
+const statusLabel = { propuesto: 'Propuesto', 'por-confirmar': 'Por confirmar' };
+
+const summary = (items: Item[]) => {
+  const p = items.filter((i) => i.kind === 'ponencia').length;
+  const c = items.filter((i) => i.kind === 'conferencia').length;
+  const t = items.filter((i) => i.kind === 'taller').length;
+  return [
+    p && `${p} ponencia${p > 1 ? 's' : ''}`,
+    c && `${c} conferencia${c > 1 ? 's' : ''}`,
+    t && `${t} taller${t > 1 ? 'es' : ''}`,
+  ].filter(Boolean).join(' · ');
+};
 ---
 
 <section id="agenda" class="relative py-32 bg-white overflow-hidden">
   <div class="orb w-[400px] h-[400px] bg-brand-blue/5 top-20 right-[-100px]"></div>
   <div class="absolute inset-0 bg-grid-pattern opacity-[0.12]"></div>
 
-  <div class="relative z-10 max-w-7xl mx-auto px-6">
-    <div class="text-center mb-20">
+  <div class="relative z-10 max-w-5xl mx-auto px-6">
+    <div class="text-center mb-14">
       <div class="reveal">
         <span class="section-label">Programa del evento</span>
         <h2 class="font-display text-4xl sm:text-5xl mt-4 text-slate-900">
           Agenda <span class="gradient-text">general</span>
         </h2>
+        <p class="text-slate-500 text-sm mt-4">Horarios en hora de Santiago de Chile (CLT)</p>
       </div>
     </div>
 
-    <div class="grid lg:grid-cols-3 gap-6">
-      {[
-        {
-          date: '7 oct',
-          day: 'Miércoles',
-          color: 'from-brand-blue-light/25 to-brand-blue-light/5',
-          badgeClass: 'border-brand-blue/35 text-brand-blue-dark bg-brand-blue-light/10',
-          timeClass: 'text-brand-blue-dark',
-          lineClass: 'bg-brand-blue/25',
-          badge: 'Día doctoral',
-          title: 'Coloquio doctoral',
-          subtitle: 'Maestría y doctorado',
-          events: [
-            { time: '09:00', label: 'Apertura de la sesión doctoral' },
-            { time: '10:30', label: 'Presentaciones de investigación' },
-            { time: '14:00', label: 'Sesiones de mentoría' },
-            { time: '17:00', label: 'Retroalimentación y cierre' },
-          ],
-        },
-        {
-          date: '8 oct',
-          day: 'Jueves',
-          color: 'from-brand-blue/20 to-brand-blue/5',
-          badgeClass: 'border-blue-600/40 text-blue-700 bg-blue-600/10',
-          timeClass: 'text-blue-700',
-          lineClass: 'bg-blue-600/20',
-          badge: 'Día principal 1',
-          title: 'Inauguración del congreso',
-          subtitle: 'Programa completo',
-          events: [
-            { time: '09:00', label: 'Ceremonia inaugural' },
-            { time: '10:30', label: 'Conferencias magistrales' },
-            { time: '14:00', label: 'Paneles temáticos' },
-            { time: '16:30', label: 'Presentaciones académicas' },
-            { time: '19:00', label: 'Networking académico' },
-          ],
-        },
-        {
-          date: '9 oct',
-          day: 'Viernes',
-          color: 'from-brand-blue-dark/22 to-brand-blue/5',
-          badgeClass: 'border-brand-blue-dark/40 text-brand-blue-dark bg-brand-blue-dark/10',
-          timeClass: 'text-brand-blue-dark',
-          lineClass: 'bg-brand-blue-dark/20',
-          badge: 'Día principal 2',
-          title: 'Sesiones plenarias',
-          subtitle: 'y talleres',
-          events: [
-            { time: '09:00', label: 'Talleres y laboratorios' },
-            { time: '11:00', label: 'Sesiones paralelas' },
-            { time: '14:00', label: 'Presentaciones' },
-            { time: '16:00', label: 'Ceremonia de cierre' },
-            { time: '18:00', label: 'Encuentro social' },
-          ],
-        },
-      ].map((day, i) => (
-        <div class={`reveal reveal-delay-${i + 1} relative rounded-2xl overflow-hidden border border-slate-200 glass glass-hover card-shine`}>
-          <div class={`absolute inset-0 bg-gradient-to-b ${day.color} pointer-events-none`}></div>
-
-          <div class="relative p-6">
-            <div class="flex items-start justify-between mb-6">
-              <div>
-                <div class="font-mono text-xs text-slate-500 tracking-widest uppercase mb-1">{day.day}</div>
-                <div class="font-display text-4xl text-slate-900">{day.date}</div>
-              </div>
-              <span class={`font-mono text-xs px-3 py-1 rounded-full border ${day.badgeClass}`}>
-                {day.badge}
-              </span>
-            </div>
-
-            <div class="mb-6">
-              <h3 class="font-display text-xl text-slate-900">{day.title}</h3>
-              <p class="text-slate-500 text-sm">{day.subtitle}</p>
-            </div>
-
-            <div class="space-y-3">
-              {day.events.map((event) => (
-                <div class="flex items-center gap-3">
-                  <span class={`font-mono text-xs w-12 shrink-0 opacity-80 ${day.timeClass}`}>{event.time}</span>
-                  <div class={`h-px flex-1 ${day.lineClass}`}></div>
-                  <span class="text-slate-600 text-xs font-body leading-tight text-right max-w-[140px]">{event.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+    <!-- Selector de día -->
+    <div class="reveal grid grid-cols-3 gap-2 sm:gap-4 mb-10" role="tablist" aria-label="Días del congreso">
+      {days.map((day, i) => (
+        <button
+          type="button"
+          role="tab"
+          id={`agenda-tab-${day.id}`}
+          aria-controls={`agenda-panel-${day.id}`}
+          aria-selected={i === 0 ? 'true' : 'false'}
+          data-agenda-tab={day.id}
+          class="agenda-tab glass rounded-2xl border border-slate-200 p-3 sm:p-5 text-left transition-all"
+        >
+          <div class="font-mono text-[10px] sm:text-xs tracking-widest uppercase text-slate-500 mb-1">{day.day}</div>
+          <div class="font-display text-2xl sm:text-4xl text-slate-900">{day.date}</div>
+          <div class="hidden sm:block text-xs text-slate-500 mt-2 font-medium">{summary(day.items)}</div>
+        </button>
       ))}
     </div>
+
+    <!-- Paneles -->
+    {days.map((day, i) => (
+      <div
+        id={`agenda-panel-${day.id}`}
+        role="tabpanel"
+        aria-labelledby={`agenda-tab-${day.id}`}
+        data-agenda-panel={day.id}
+        class:list={['reveal', { hidden: i !== 0 }]}
+      >
+        <div class="flex items-baseline justify-between gap-4 mb-6 px-1">
+          <h3 class="font-display text-xl sm:text-2xl text-slate-900">{day.theme}</h3>
+          <span class="font-mono text-xs text-slate-400 uppercase tracking-widest shrink-0">{day.day} {day.date}</span>
+        </div>
+
+        <ol class="relative">
+          <div class="absolute left-[4.75rem] sm:left-[6.25rem] top-2 bottom-2 w-px bg-gradient-to-b from-brand-blue/30 via-brand-blue/15 to-transparent" aria-hidden="true"></div>
+
+          {day.items.map((item) => {
+            const style = kindStyle[item.kind];
+            return (
+              <li class="relative flex gap-4 sm:gap-6 py-2">
+                <div class="w-16 sm:w-20 shrink-0 text-right pt-4">
+                  <div class="font-mono text-sm text-brand-blue-dark">{item.time}</div>
+                  {item.end && <div class="font-mono text-[11px] text-slate-400">{item.end}</div>}
+                </div>
+
+                <div class="relative shrink-0 w-0">
+                  <span class={`absolute -left-[5px] top-[1.3rem] w-2.5 h-2.5 rounded-full ring-4 ring-white ${style.dot}`}></span>
+                </div>
+
+                {style.compact ? (
+                  <div class="flex-1 min-w-0 pt-3.5 pb-1 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                    <span class="font-semibold text-slate-500 text-sm italic">{item.title}</span>
+                    {item.who && <span class="text-xs text-slate-400">{item.who}</span>}
+                  </div>
+                ) : (
+                  <div class="flex-1 min-w-0 glass glass-hover rounded-xl border border-slate-200 p-4 sm:p-5">
+                    <div class="flex flex-wrap items-center gap-2 mb-2">
+                      <span class={`font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full border ${tagClass[item.kind]}`}>
+                        {item.label ?? style.tag}
+                      </span>
+                      {item.status && (
+                        <span class="font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-full border border-dashed border-amber-400/60 text-amber-700 bg-amber-50">
+                          {statusLabel[item.status]}
+                        </span>
+                      )}
+                    </div>
+                    <p class="font-semibold text-slate-900 text-sm sm:text-base leading-snug">{item.title}</p>
+                    {item.who && <p class="text-slate-500 text-xs sm:text-sm mt-1.5">{item.who}</p>}
+                  </div>
+                )}
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+    ))}
 
     <div class="mt-16 reveal">
       <div class="glass rounded-2xl p-8 border border-slate-200">
@@ -110,23 +209,23 @@
           {[
             {
               icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>`,
-              title: 'Conferencias magistrales',
-              desc: 'Expertos internacionales invitados',
+              title: '12 ponencias',
+              desc: 'Investigación en dinámica de sistemas',
             },
             {
               icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>`,
-              title: 'Paneles temáticos',
-              desc: 'Grupos de discusión especializados',
+              title: 'Conferencias',
+              desc: 'Expertos invitados',
             },
             {
               icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
-              title: 'Talleres prácticos',
-              desc: 'Sesiones de modelado aplicado',
+              title: 'Talleres',
+              desc: 'Actividades experienciales',
             },
             {
               icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>`,
               title: 'Networking académico',
-              desc: 'Conexión con investigadores',
+              desc: 'Mesas de diálogo y actividades sociales',
             },
           ].map((item) => (
             <div class="flex items-start gap-4">
@@ -142,3 +241,31 @@
     </div>
   </div>
 </section>
+
+<style>
+  .agenda-tab[aria-selected='true'] {
+    border-color: rgb(37 99 235 / 0.5);
+    background: linear-gradient(135deg, rgb(91 163 245 / 0.18), rgb(255 255 255 / 0.9));
+    box-shadow: 0 10px 30px -12px rgb(37 99 235 / 0.35);
+  }
+  .agenda-tab[aria-selected='false']:hover {
+    border-color: rgb(37 99 235 / 0.25);
+  }
+</style>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('[data-agenda-tab]');
+  const panels = document.querySelectorAll<HTMLElement>('[data-agenda-panel]');
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const id = tab.dataset.agendaTab;
+      tabs.forEach((t) => t.setAttribute('aria-selected', String(t === tab)));
+      panels.forEach((p) => {
+        const active = p.dataset.agendaPanel === id;
+        p.classList.toggle('hidden', !active);
+        if (active) p.classList.add('visible');
+      });
+    });
+  });
+</script>

@@ -1,14 +1,12 @@
 ---
-/** Ficha de Google Maps del punto (mismo lugar que el mapa embebido). */
-const mapsPlaceUrl =
-  'https://www.google.com/maps/place/UNAB+-+Campus+Rep%C3%BAblica+Edificio+R3/@-33.451571,-70.6678806';
+const address = 'Av. Los Leones 745, Providencia, Región Metropolitana, Santiago de Chile';
+const mapsQuery = encodeURIComponent('Universidad Andrés Bello, Av. Los Leones 745, Providencia, Santiago, Chile');
 
-/**
- * Mapa embebido sin API key (`output=embed`).
- * Coordenadas del marcador según la ficha: 3d/-4d del enlace oficial.
- */
-const googleMapsEmbedSrc =
-  'https://www.google.com/maps?q=-33.451571,-70.6678806&hl=es&z=18&output=embed';
+/** Ficha de Google Maps del punto (mismo lugar que el mapa embebido). */
+const mapsPlaceUrl = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
+
+/** Mapa embebido sin API key (`output=embed`). */
+const googleMapsEmbedSrc = `https://www.google.com/maps?q=${mapsQuery}&hl=es&z=17&output=embed`;
 ---
 
 <section id="venue" class="relative py-32 bg-white overflow-hidden">
@@ -29,13 +27,13 @@ const googleMapsEmbedSrc =
         <div class="relative rounded-2xl overflow-hidden aspect-video glass border border-slate-200">
           <img
             src="https://infraestructura.unab.cl/wp-content/uploads/2023/01/01-fachada-campus-unab-concepcion-2022.webp"
-            alt="Edificio UNAB Campus República, Santiago de Chile"
+            alt="Universidad Andrés Bello, Campus Los Leones, Santiago de Chile"
             class="w-full h-full object-cover"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-white/95 to-transparent"></div>
           <div class="absolute bottom-0 left-0 right-0 p-4 space-y-1">
-            <p class="font-display text-slate-900 text-sm">UNAB · Campus República · Edificio R3</p>
-            <p class="text-slate-500 text-xs font-medium">República 239, Santiago de Chile</p>
+            <p class="font-display text-slate-900 text-sm">UNAB · FEN · Campus Los Leones</p>
+            <p class="text-slate-500 text-xs font-medium">{address}</p>
           </div>
         </div>
       </div>
@@ -46,6 +44,15 @@ const googleMapsEmbedSrc =
             <h3 class="font-display text-2xl text-slate-900 mb-3">
               Universidad Andrés Bello
             </h3>
+            <p class="text-brand-blue-dark text-sm font-semibold mb-3">
+              Facultad de Economía y Negocios (FEN) – Campus Los Leones
+            </p>
+            <div class="flex items-start gap-2 mb-6">
+              <svg class="w-4 h-4 text-brand-blue shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              <p class="text-slate-600 text-sm font-medium">{address}</p>
+            </div>
             <p class="text-slate-600 leading-relaxed text-sm mb-6 font-normal">
               Institución anfitriona de CLADS 2026, facilitando sus instalaciones académicas para el desarrollo del evento en un entorno moderno, equipado y propicio para el aprendizaje y la colaboración.
             </p>
@@ -56,9 +63,9 @@ const googleMapsEmbedSrc =
 
           <div class="grid grid-cols-2 gap-3">
             {[
-              { label: 'Ciudad', value: 'Santiago, Chile' },
+              { label: 'Ciudad', value: 'Providencia, Santiago' },
               { label: 'Fecha', value: '7–9 oct 2026' },
-              { label: 'Sede', value: 'Univ. Andrés Bello' },
+              { label: 'Sede', value: 'UNAB · FEN Los Leones' },
               { label: 'Modalidad', value: 'Presencial' },
             ].map((item) => (
               <div class="glass rounded-xl p-4">
@@ -82,7 +89,7 @@ const googleMapsEmbedSrc =
       <div class="grid lg:grid-cols-5 gap-6 items-stretch">
         <div class="lg:col-span-3 rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 min-h-[400px]">
           <iframe
-            title="UNAB Campus República Edificio R3 — Google Maps"
+            title="UNAB FEN Campus Los Leones — Google Maps"
             src={googleMapsEmbedSrc}
             width="100%"
             height="400"
@@ -125,7 +132,7 @@ const googleMapsEmbedSrc =
             <svg class="w-4 h-4 text-brand-blue" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
             </svg>
-            <span class="font-mono text-xs text-slate-700">UNAB · Campus República · Edificio R3</span>
+            <span class="font-mono text-xs text-slate-700">UNAB · FEN · Av. Los Leones 745, Providencia</span>
           </div>
         </div>
       </div>
